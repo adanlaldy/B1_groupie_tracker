@@ -1,0 +1,215 @@
+.error a {
+    text-decoration-line: underline;
+    text-decoration-color: crimson;
+}
+.error a:visited {
+    color: crimson;
+}
+.errorPage{
+    margin-top: 70px;
+    text-align: center;
+}
+.error2{
+    margin-left: 160px;
+}
+.video{
+    margin-top: 80px;
+    text-align: center;
+}
+.body1 {
+    background: #212737;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    color: white;
+}
+.body2 {
+    background: #212737;
+    color: white;
+    height: 100VH;
+    display: block;
+    margin: 0 auto;
+}
+.body3 {
+    background: #212737;
+    color: white;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.searchbar {
+    margin-left: 200px;
+}
+.members{
+    margin-left: 250px;
+}
+
+.members2{
+    margin-left: 1007px;
+}
+.filters{
+    margin-left: 153px;
+}
+#Head {
+    background-color: #3165ae;
+    overflow: hidden;
+}
+#Head3{
+    background-color: #3165ae;
+    overflow: hidden;
+}
+.logo{
+    margin-left: 20px;
+}
+.auteur{
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+.auteur2 {
+    margin-top: 100px;
+    text-align: center;
+}
+.auteur3{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-right: 40px;
+    margin-left: 40px;
+}
+
+.main {
+    padding-top: 20px;
+    padding-bottom: 38px;
+}
+.main2 {
+    overflow: hidden;
+    display: flex;
+    height: 100VH;
+}
+.main3{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.Gauche{
+    background-color: #151b24;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+.Gauche2{
+    background-color: #151b24;
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: 15px;
+}
+
+.Gauche3{
+    background-color: #151b24;
+    padding-right: 50px;
+    padding-left: 50px;
+    height: 100VH;
+}
+
+.image{
+    margin-bottom: 70px;
+    margin-left: 9px;
+    margin-right: 9px;
+}
+
+.image2{
+    margin-left: 200px;
+}
+.image3{
+    margin-top: 20px;
+}
+
+.searchbar2 {
+    margin-left: 220px;
+}
+.Droite2{
+    margin-left: 280px;
+}
+
+.données{
+    margin-left: 300px;
+}
+
+.données1 {
+    margin-left: 200px;
+}
+.données2 {
+    margin-top: 100px;
+    margin-right: 496px;
+}
+.données3 {
+    margin-top: 200px;
+    margin-right: 200px;
+}
+.données4 {
+    margin-top: 100px;
+    margin-left: 100px;
+}
+h1{
+    text-align: center;
+    margin-right: 200px;
+}
+
+.h22{
+    width: 120px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+.Titre {
+    margin-left: 200px;
+    margin-top: 0px;
+}
+.body1 {
+    background: #212737;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    height: 100vh;
+    color: white;
+}
+
+.body2 {
+    background: #212737;
+    color: white;
+    height: 100VH;
+    display: block;
+    margin: 0 auto;
+}
+.body3 {
+    background: #212737;
+    color: white;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+.contact{
+    text-align: justify-all;
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    padding: 5mm;
+}
+
+.Textesearchbyfilter {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-left: 280px;
+    margin-right: 120px;
+    padding-right: 200px;
+}
