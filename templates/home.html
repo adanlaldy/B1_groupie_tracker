@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head data-main-header id="main-header">
+    <meta charset="UTF-8">
+    <title>Groupie-tracker</title>
+    <link rel="stylesheet" href="http://localhost:8080/static/style.css" type="text/css">
+    <script src="effects.js"></script>
+    <style>
+        .main div {
+            float: left;
+            clear: none;
+        }
+    </style>
+    <style>
+        .main2 div {
+            float: left;
+            clear: none;
+        }
+    </style>
+    <script>
+        function agrandirImage(img) {
+            img.style.transform = "scale(1.1)";
+        }
+        function retrecirImage(img) {
+            img.style.transform = "scale(1)";
+        }
+        function agrandirSearchBar() {
+            document.getElementById("searchbar").style.width = "200px";
+        }
+        function resetSearchbar(){
+            document.querySelector(".searchbar input").style.width = "";
+        }
+    </script>
+</head>
+<body class="body1">
+<header data-main-header id="Head">
+    <div class="main">
+        <div class="Logo">
+            <a href="/home" class="logo">-GA.LA-</a>
+        </div>
+        <div class="searchbar">
+            <form method="post">
+                <input type="text" list="search" placeholder="Search.." name="searchbar" id="searchbar" onmouseover="agrandirSearchBar()" onmouseout="resetSearchbar()">
+                <datalist id="search">
+                    {{range.}}
+                    <option value="{{.Name}}">group</option>
+                    {{range .Members}}
+                    <option value="{{.}}">member</option>
+                    {{end}}
+                    <option value="{{.FirstAlbum}}">1st album</option>
+                    <option value="{{.CreationDate}}">creation date</option>
+                    {{end}}
+                </datalist>
+            </form>
+        </div>
+        <form method="post">
+            <div class="members">
+                <label for="scales">N° Members</label>
+                <label>1:</label>
+                <input type="checkbox" value="1" name="members" checked>
+                <label>2:</label>
+                <input type="checkbox" value="2" name="members">
+                <label>3:</label>
+                <input type="checkbox" value="3" name="members">
+                <label>4:</label>
+                <input type="checkbox" value="4" name="members">
+                <label>5:</label>
+                <input type="checkbox" value="5" name="members">
+                <label>6:</label>
+                <input type="checkbox" value="6" name="members">
+                <label>7:</label>
+                <input type="checkbox" value="7" name="members">
+                <label>8:</label>
+                <input type="checkbox" value="8" name="members">
+            </div>
+            <div class="buttonsearchbar">
+                <button type="submit">Validate filters</button>
+            </div>
+        </form>
+    </div>
+</header>
+<header data-main-header id="PageGauche">
+    <div class="main2">
+        <div class="Gauche2">
+            <h2 class="h22"><a href="/home">🏠Home</a></h2>
+            <h2 class="h22"><a href="/contact">✉Contact</a></h2>
+        </div>
+        <div class="auteur">
+            {{range.}}
+            <form method="post">
+                <button value="{{.ID}}" name="title"><img src="{{.Image}}" onmouseover="agrandirImage(this)" onmouseout="retrecirImage(this)" /></button>
+            </form>
+            {{end}}
+        </div>
+    </div>
+</header>
+</body>
+</html>

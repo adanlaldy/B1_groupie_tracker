@@ -8,50 +8,54 @@ import (
 	"text/template"
 )
 
-var artist models.Artist
-var allArtist []models.Artist
-var filteredArtistsIndex []int
-var filteredArtists []models.Artist
-var index = 0
+var data Data
+
+type Data struct {
+	artist               models.Artist
+	allArtist            []models.Artist
+	filteredArtistsIndex []int
+	filteredArtists      []models.Artist
+	index                int
+}
 
 func getAllArtist() []models.Artist {
-	if allArtist == nil {
-		allArtist = models.InitAllArtist()
+	if data.allArtist == nil {
+		data.allArtist = models.InitAllArtist()
 	}
-	return allArtist
+	return data.allArtist
 }
 
 func setIndexFiltered(Index int) {
-	filteredArtistsIndex = append(filteredArtistsIndex, Index)
+	data.filteredArtistsIndex = append(data.filteredArtistsIndex, Index)
 }
 
 func getIndexFiltered() []int {
-	return filteredArtistsIndex
+	return data.filteredArtistsIndex
 }
 
 func resetIndexFiltered() {
-	filteredArtistsIndex = filteredArtistsIndex[:0]
+	data.filteredArtistsIndex = data.filteredArtistsIndex[:0]
 }
 
 func initFilteredArtists() []models.Artist {
 	if len(getIndexFiltered()) != 0 {
 		for i := 0; i < len(getIndexFiltered()); i++ {
-			filteredArtists = append(filteredArtists, getAllArtist()[getIndexFiltered()[i]])
+			data.filteredArtists = append(data.filteredArtists, getAllArtist()[getIndexFiltered()[i]])
 		}
 	}
-	return filteredArtists
+	return data.filteredArtists
 }
 
 func resetFilteredArtists() {
-	filteredArtists = filteredArtists[:0]
+	data.filteredArtists = data.filteredArtists[:0]
 }
 
 func setIndexArtist(mIndex int) {
-	index = mIndex
+	data.index = mIndex
 }
 
 func getIndexArtist() int {
-	return index
+	return data.index
 }
 
 func initAllArtistPages() {
@@ -76,8 +80,8 @@ func homePage(w ResponseWriter, r *Request) {
 	resetIndexFiltered()
 	if r.FormValue("title") != "" {
 		id, _ := strconv.Atoi(r.FormValue("title"))
-		artist = models.InitArtist(id)
-		Redirect(w, r, "/artist/"+strconv.Itoa(artist.ID), 303)
+		data.artist = models.InitArtist(id)
+		Redirect(w, r, "/artist/"+strconv.Itoa(data.artist.ID), 303)
 	}
 	for i := 0; i < 52; i++ {
 		if r.FormValue("searchbar") == getAllArtist()[i].Name {
@@ -103,15 +107,15 @@ func homePage(w ResponseWriter, r *Request) {
 		}
 	}
 	initFilteredArtists()
-	if len(filteredArtistsIndex) != 0 {
+	if len(data.filteredArtistsIndex) != 0 {
 		Redirect(w, r, "/searchbyfilter", 303)
 	}
-	t.Execute(w, allArtist)
+	t.Execute(w, data.allArtist)
 }
 
 func artistPage(w ResponseWriter, r *Request) {
 	t := template.Must(template.ParseFiles("./templates/artist.html"))
-	t.Execute(w, artist)
+	t.Execute(w, data.artist)
 }
 
 func pageNotFound(w ResponseWriter, r *Request) {
@@ -124,20 +128,20 @@ func searchPage(w ResponseWriter, r *Request) {
 	t := template.Must(template.ParseFiles("./templates/search.html"))
 	if r.FormValue("title") != "" {
 		id, _ := strconv.Atoi(r.FormValue("title"))
-		artist = models.InitArtist(id)
-		Redirect(w, r, "/artist/"+strconv.Itoa(artist.ID), 303)
+		data.artist = models.InitArtist(id)
+		Redirect(w, r, "/artist/"+strconv.Itoa(data.artist.ID), 303)
 	}
-	t.Execute(w, allArtist[getIndexArtist()])
+	t.Execute(w, data.allArtist[getIndexArtist()])
 }
 
 func filterPage(w ResponseWriter, r *Request) {
 	t := template.Must(template.ParseFiles("./templates/searchbyfilter.html"))
 	if r.FormValue("title") != "" {
 		id, _ := strconv.Atoi(r.FormValue("title"))
-		artist = models.InitArtist(id)
-		Redirect(w, r, "/artist/"+strconv.Itoa(artist.ID), 303)
+		data.artist = models.InitArtist(id)
+		Redirect(w, r, "/artist/"+strconv.Itoa(data.artist.ID), 303)
 	}
-	t.Execute(w, filteredArtists)
+	t.Execute(w, data.filteredArtists)
 }
 
 func contactPage(w ResponseWriter, r *Request) {

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist</title>
+    <link rel="stylesheet" href="http://localhost:8080/static/style.css" type="text/css">
+    <style>
+        .main div {
+            float: left;
+            clear: none;
+        }
+    </style>
+    <style>
+        .main2 div {
+            float: left;
+            clear: none;
+        }
+    </style>
+</head>
+<body class="body2" style="background-image: url({{.Image}});background-repeat: no-repeat;background-position: right top 58px;background-size: 300px">
+<header  data-main-header id="Head">
+    <div class="main">
+        <div class="Logo">
+            <a href="/home" class="logo">-GA.LA-</a>
+        </div>
+    </div>
+</header>
+<header data-main-header id="PageGauche">
+    <div class="main2">
+        <div class="Gauche3">
+            <h2 class="h22"><a href="/home">🏠Home</a></h2>
+            <h2 class="h22"><a href="/contact">✉Contact</a></h2>
+        </div>
+        <div class="Droite">
+            <div class="données1">
+                <div class="données">
+                    <h1>{{.Name}}</h1>
+                </div>
+                <div class="données2">
+                    <h2>Members: {{range .Members}}
+                        {{.}} /
+                        {{end}}</h2>
+                </div>
+                <div class="données3">
+                    <h2>CreationDate : {{.CreationDate}}</h2>
+                </div>
+                <div class="données4">
+                    <h2>First Album : {{.FirstAlbum}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>

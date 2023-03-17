@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" href="http://localhost:8080/static/style.css" type="text/css">
+    <script src="expand.js"></script>
+    <style>
+        .main div {
+            float: left;
+            clear: none;
+        }
+    </style>
+    <style>
+        .main2 div {
+            float: left;
+            clear: none;
+        }
+    </style>
+    <script>
+        function agrandirImage() {
+            var img = document.getElementById("image");
+            img.style.transform = "scale(1.1)";
+        }
+        function retrecirImage() {
+            var img = document.getElementById("image");
+            img.style.transform = "scale(1)";
+        }
+    </script>
+</head>
+<body class="body3">
+<header  id="Head3">
+    <div class="main3">
+        <div class="Logo">
+            <a href="/home" class="logo">-GA.LA-</a>
+        </div>
+    </div>
+</header>
+<header data-main-header id="PageGauche">
+    <div class="main2">
+        <div class="Gauche3">
+            <h2><a href="http://localhost:8080/home">🏠Home</a></h2>
+            <h2><a href="http://localhost:8080/contact">✉Contact</a></h2>
+        </div>
+        <div class="Droite2">
+            <h2></h2>
+            <div class="auteur2">
+                <h2>Click on the image below to learn more about the group {{.Name}}</h2>
+                <h2>↓</h2>
+                <form method="post">
+                    <button value="{{.ID}}" name="title"><img id="image" src="{{.Image}}" onmouseover="agrandirImage()" onmouseout="retrecirImage()"/></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head data-main-header id="main-header">
+    <meta charset="UTF-8">
+    <title>Search</title>
+    <link rel="stylesheet" href="http://localhost:8080/static/style.css" type="text/css">
+    <script src="effects.js"></script>
+    <style>
+        .main div {
+            float: left;
+            clear: none;
+        }
+    </style>
+    <style>
+        .main2 div {
+            float: left;
+            clear: none;
+        }
+    </style>
+    <script>
+        function agrandirImage(img) {
+            img.style.transform = "scale(1.1)";
+        }
+        function retrecirImage(img) {
+            img.style.transform = "scale(1)";
+        }
+        function agrandirSearchBar() {
+            document.getElementById("searchbar").style.width = "200px";
+        }
+        function resetSearchbar(){
+            document.querySelector(".searchbar input").style.width = "";
+        }
+    </script>
+</head>
+<body class="body1">
+<header data-main-header id="Head">
+    <div class="main">
+        <div class="Logo">
+            <a href="/home" class="logo">-GA.LA-</a>
+        </div>
+    </div>
+</header>
+<header data-main-header id="PageGauche">
+    <div class="main2">
+        <div class="Gauche2">
+            <h2 class="h22"><a href="/home">🏠Home</a></h2>
+            <h2 class="h22"><a href="/contact">✉Contact</a></h2>
+        </div>
+        <div class="auteur3">
+            <div class="Textesearchbyfilter">
+                <h2>Click on a image below to learn more about one group </h2>
+                <h2>↓</h2>
+            </div>
+            {{range.}}
+            <div class="image3">
+                <form method="post">
+                    <button value="{{.ID}}" name="title"><img src="{{.Image}}" onmouseover="agrandirImage(this)" onmouseout="retrecirImage(this)" /></button>
+                </form>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</header>
+</body>
+</html>
